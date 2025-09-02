@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "default_movie_backdrop.jpeg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
