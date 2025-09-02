@@ -16,6 +16,7 @@ final class TagViewTests: XCTestCase {
         record = nil
     }
 
+    @MainActor
     func testTagView_LightMode() {
         let tagView = configureTagView(color: nil)
 
@@ -24,6 +25,7 @@ final class TagViewTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testTagView_DarkMode() {
         let tagView = configureTagView(color: nil)
         tagView.overrideUserInterfaceStyle = .light
@@ -33,6 +35,7 @@ final class TagViewTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testTagView_WithLightBackgroundColor() {
         let tagView = configureTagView(color: .systemBackground)
 
@@ -41,6 +44,7 @@ final class TagViewTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testTagView_WithDarkBackgroundColor() {
         let tagView = configureTagView(color: .systemBackground)
         tagView.overrideUserInterfaceStyle = .dark
@@ -51,6 +55,7 @@ final class TagViewTests: XCTestCase {
     }
 
     
+    @MainActor
     private func configureTagView(color: UIColor?) -> TagView {
         let tagView = TagView()
         tagView.setupView(title: "Suspense")

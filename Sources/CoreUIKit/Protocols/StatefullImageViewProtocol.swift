@@ -12,6 +12,7 @@ import UIKit
 /// Protocolo que define a interface pública de uma `StatefulImageView`.
 ///
 /// Permite abstração e facilita testes e desacoplamento.
+@MainActor
 public protocol StatefulImageViewProtocol: ComponentProtocol {
     
     // MARK: - Propriedades

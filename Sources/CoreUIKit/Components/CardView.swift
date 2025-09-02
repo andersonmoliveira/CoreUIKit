@@ -54,7 +54,6 @@ public final class CardView: UIView, CardViewProtocol {
                                                        releaseDateLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.alignment = .fill
         stackView.spacing = 4
         return stackView
     }()

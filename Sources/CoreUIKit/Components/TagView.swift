@@ -38,7 +38,6 @@ public final class TagView: UIView, TagViewProtocol {
     public override var backgroundColor: UIColor? {
         didSet {
             if backgroundColor == nil { setupUI() }
-//            setupTextColor()
         }
     }
 

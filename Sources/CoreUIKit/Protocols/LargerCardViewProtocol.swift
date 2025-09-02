@@ -17,6 +17,7 @@ import UIKit
 /// - Título, data de lançamento e avaliação
 /// - Overview (descrição opcional)
 /// - Estados de carregamento de imagens (loading, empty, success)
+@MainActor
 public protocol LargerCardViewProtocol: ComponentProtocol {
     
     /// Imagem placeholder exibida quando o estado do backdrop for `.empty`

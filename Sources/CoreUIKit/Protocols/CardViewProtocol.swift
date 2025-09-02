@@ -18,6 +18,7 @@ import UIKit
 ///
 /// Usado para abstrair a implementação de diferentes tipos de cartões,
 /// facilitando composição de UI e reutilização.
+@MainActor
 public protocol CardViewProtocol: ComponentProtocol {
     
     /// Configura o cartão com as informações do filme

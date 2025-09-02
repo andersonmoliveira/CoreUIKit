@@ -12,6 +12,7 @@ import UIKit
 /// Protocolo que define a interface pública de uma `TagView`.
 ///
 /// Permite configurar a view com um título e definir a cor de fundo.
+@MainActor
 public protocol TagViewProtocol: ComponentProtocol {
     
     /// Cor de fundo da tag

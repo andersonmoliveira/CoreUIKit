@@ -16,6 +16,7 @@ final class StatefulImageViewTests: XCTestCase {
         record = nil
     }
 
+    @MainActor
     func testStatefulImageView_Loading() {
         let statefulImageView = configureStatefulImageView()
         statefulImageView.state = .loading
@@ -25,6 +26,7 @@ final class StatefulImageViewTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testStatefulImageView_Empty_WithPlaceholder() {
         let statefulImageView = configureStatefulImageView()
         statefulImageView.state = .empty
@@ -34,6 +36,7 @@ final class StatefulImageViewTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testStatefulImageView_Empty_WithoutPlaceholder() {
         let statefulImageView = configureStatefulImageView(placeholder: nil)
         statefulImageView.state = .empty
@@ -43,6 +46,7 @@ final class StatefulImageViewTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testStatefulImageView_Success() {
         let statefulImageView = configureStatefulImageView()
         statefulImageView.state = .success(image: UIImage(named: "poster_test", in: Bundle.module, with: nil)!)
@@ -52,6 +56,7 @@ final class StatefulImageViewTests: XCTestCase {
         }
     }
     
+    @MainActor
     private func configureStatefulImageView(placeholder: UIImage? = UIImage(named: "default_movie_poster", in: Bundle.module, with: nil)) -> StatefulImageView {
         let statefulImageView = StatefulImageView()
 
