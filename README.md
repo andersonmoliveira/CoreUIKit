@@ -60,6 +60,7 @@ cardView.update(image: newPosterImage)
 ```
 
 **Visualização do componente (adicionar imagem):**
+
 ![CardView](./Images/CardView.png)
 
 ---
@@ -88,6 +89,7 @@ cardView.setupView(
 ```
 
 **Visualização do componente (adicionar imagem):**
+
 ![LargerCardView](./Images/LargerCardView.png)
 
 ---
@@ -112,6 +114,7 @@ imageView.state = .success(image: loadedImage)
 ```
 
 **Visualização do componente (adicionar imagem):**
+
 ![StatefulImageView](./Images/StatefulImageView.png)
 
 ---
@@ -124,11 +127,12 @@ Componente de **rótulo estilizado** (chip/tag) com arredondamento automático e
 
 ```swift
 let tag = TagView()
-tag.setupView(title: "Novo")
-tag.backgroundColor = .systemBlue
+tag.setupView(title: "Suspense")
+tag.backgroundColor = .black
 ```
 
 **Visualização do componente (adicionar imagem):**
+
 ![TagView](./Images/TagView.png)
 
 ---
