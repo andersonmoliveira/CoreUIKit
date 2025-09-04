@@ -1,3 +1,10 @@
+//
+//  TagViewTests.swift
+//  CoreUIKit
+//
+//  Created by Anderson Oliveira on 29/08/25.
+//
+
 import XCTest
 import SnapshotTesting
 @testable import CoreUIKit
@@ -19,6 +26,7 @@ final class TagViewTests: XCTestCase {
     @MainActor
     func testTagView_LightMode() {
         let tagView = configureTagView(color: nil)
+        tagView.overrideUserInterfaceStyle = .light
 
         withSnapshotTesting(record: record, diffTool: .ksdiff) {
             assertSnapshot(of: tagView, as: .image)
@@ -38,6 +46,7 @@ final class TagViewTests: XCTestCase {
     @MainActor
     func testTagView_WithLightBackgroundColor() {
         let tagView = configureTagView(color: .systemBackground)
+        tagView.overrideUserInterfaceStyle = .light
 
         withSnapshotTesting(record: record, diffTool: .ksdiff) {
             assertSnapshot(of: tagView, as: .image)

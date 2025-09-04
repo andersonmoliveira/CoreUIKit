@@ -1,3 +1,10 @@
+//
+//  LargerCardViewTests.swift
+//  CoreUIKit
+//
+//  Created by Anderson Oliveira on 29/08/25.
+//
+
 import XCTest
 import SnapshotTesting
 @testable import CoreUIKit
@@ -19,10 +26,10 @@ final class LargerCardViewTests: XCTestCase {
     @MainActor
     func testLargerCardView_LightMode() {
         let largerCardView = configureLargerCardView()
+        largerCardView.overrideUserInterfaceStyle = .light
         
         withSnapshotTesting(record: record, diffTool: .ksdiff) {
-            assertSnapshot(of: largerCardView,
-                           as: .image)
+            assertSnapshot(of: largerCardView, as: .image)
         }
     }
     
@@ -32,8 +39,7 @@ final class LargerCardViewTests: XCTestCase {
         largerCardView.overrideUserInterfaceStyle = .dark
         
         withSnapshotTesting(record: record, diffTool: .ksdiff) {
-            assertSnapshot(of: largerCardView,
-                           as: .image)
+            assertSnapshot(of: largerCardView, as: .image)
         }
     }
     
@@ -43,8 +49,7 @@ final class LargerCardViewTests: XCTestCase {
         largerCardView.overrideUserInterfaceStyle = .dark
         
         withSnapshotTesting(record: record, diffTool: .ksdiff) {
-            assertSnapshot(of: largerCardView,
-                           as: .image)
+            assertSnapshot(of: largerCardView, as: .image)
         }
     }
     
@@ -54,8 +59,7 @@ final class LargerCardViewTests: XCTestCase {
         largerCardView.overrideUserInterfaceStyle = .dark
         
         withSnapshotTesting(record: record, diffTool: .ksdiff) {
-            assertSnapshot(of: largerCardView,
-                           as: .image)
+            assertSnapshot(of: largerCardView, as: .image)
         }
     }
     
@@ -65,8 +69,7 @@ final class LargerCardViewTests: XCTestCase {
         largerCardView.overrideUserInterfaceStyle = .dark
         
         withSnapshotTesting(record: record, diffTool: .ksdiff) {
-            assertSnapshot(of: largerCardView,
-                           as: .image)
+            assertSnapshot(of: largerCardView, as: .image)
         }
     }
 
@@ -74,10 +77,10 @@ final class LargerCardViewTests: XCTestCase {
     func testLargerCardView_DarkMode_BackdropLoading() {
         let largerCardView = configureLargerCardView()
         largerCardView.startLoading(type: .backdrop)
+        largerCardView.overrideUserInterfaceStyle = .dark
         
         withSnapshotTesting(record: record, diffTool: .ksdiff) {
-            assertSnapshot(of: largerCardView,
-                           as: .image)
+            assertSnapshot(of: largerCardView, as: .image)
         }
     }
 
@@ -85,13 +88,13 @@ final class LargerCardViewTests: XCTestCase {
     func testLargerCardView_DarkMode_PosterLoading() {
         let largerCardView = configureLargerCardView()
         largerCardView.startLoading(type: .poster)
+        largerCardView.overrideUserInterfaceStyle = .dark
         
-        withSnapshotTesting(record: record) {
-            assertSnapshot(of: largerCardView,
-                           as: .image)
+        withSnapshotTesting(record: record, diffTool: .ksdiff) {
+            assertSnapshot(of: largerCardView, as: .image)
         }
     }
-    
+
     @MainActor
     private func configureLargerCardView(backdrop: UIImage? = UIImage(named: "backdrop_test", in: Bundle.module, with: nil),
                                          poster: UIImage? = UIImage(named: "poster_test", in: Bundle.module, with: nil),

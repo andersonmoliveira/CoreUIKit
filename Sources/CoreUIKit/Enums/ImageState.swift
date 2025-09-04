@@ -1,6 +1,6 @@
 //
 //  ImageState.swift
-//  
+//  CoreUIKit
 //
 //  Created by Anderson Oliveira on 31/08/25.
 //

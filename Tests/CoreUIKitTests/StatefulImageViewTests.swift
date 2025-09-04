@@ -1,3 +1,10 @@
+//
+//  StatefulImageViewTests.swift
+//  CoreUIKit
+//
+//  Created by Anderson Oliveira on 29/08/25.
+//
+
 import XCTest
 import SnapshotTesting
 @testable import CoreUIKit
@@ -20,6 +27,7 @@ final class StatefulImageViewTests: XCTestCase {
     func testStatefulImageView_Loading() {
         let statefulImageView = configureStatefulImageView()
         statefulImageView.state = .loading
+        statefulImageView.overrideUserInterfaceStyle = .light
 
         withSnapshotTesting(record: record, diffTool: .ksdiff) {
             assertSnapshot(of: statefulImageView, as: .image)

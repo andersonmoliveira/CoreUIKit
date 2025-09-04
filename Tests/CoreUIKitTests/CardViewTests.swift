@@ -1,3 +1,10 @@
+//
+//  CardViewTests.swift
+//  CoreUIKit
+//
+//  Created by Anderson Oliveira on 29/08/25.
+//
+
 import XCTest
 import SnapshotTesting
 @testable import CoreUIKit
@@ -19,6 +26,7 @@ final class CardViewTests: XCTestCase {
     @MainActor
     func testCardView_LightMode() {
         let cardView = configureCardView()
+        cardView.overrideUserInterfaceStyle = .light
         
         withSnapshotTesting(record: record, diffTool: .ksdiff) {
             assertSnapshot(of: cardView, as: .image)
@@ -61,10 +69,11 @@ final class CardViewTests: XCTestCase {
         let cardView = CardView()
 
         cardView.translatesAutoresizingMaskIntoConstraints = false
+        cardView.asView().heightAnchor.constraint(equalToConstant: 300).isActive = true
 
         cardView.placeholderImage = UIImage(named: "default_movie_poster", in: Bundle.module, with: nil)
         cardView.setupView(poster: poster,
-                           title: "Como Treinar Seu Dragão",
+                           title: "Up",
                            releaseDate: "2023")
         cardView.setNeedsLayout()
         cardView.layoutIfNeeded()

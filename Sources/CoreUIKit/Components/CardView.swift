@@ -42,7 +42,7 @@ public final class CardView: UIView, CardViewProtocol {
 
     private lazy var posterImageView: StatefulImageViewProtocol = {
         let imageView = StatefulImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 12
         imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,10 +60,14 @@ public final class CardView: UIView, CardViewProtocol {
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .preferredFont(forTextStyle: .headline).withSize(11)
+        label.font = .preferredFont(forTextStyle: .headline).withSize(13)
         label.textAlignment = .center
         label.textColor = .label
         label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.7
+        label.lineBreakMode = .byTruncatingTail
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -123,18 +127,18 @@ public final class CardView: UIView, CardViewProtocol {
             contentStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
             contentStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             contentStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-
-            posterImageView.asView().heightAnchor.constraint(equalToConstant: 225),
-            posterImageView.asView().widthAnchor.constraint(equalToConstant: 150),
+            
+            posterImageView.asView().heightAnchor.constraint(equalTo: posterImageView.asView().widthAnchor, multiplier: 1.5),
+            infoStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 48)
         ])
     }
 
     /// Configura o estado de uma `StatefulImageView` com a imagem fornecida
-    private func setupImage(_ image: UIImage?, imageView: StatefulImageViewProtocol) {
+    private func setupImage(_ image: UIImage?) {
         if let image {
-            imageView.state = .success(image: image)
+            posterImageView.state = .success(image: image)
         } else {
-            imageView.state = .empty
+            posterImageView.state = .empty
         }
     }
 
@@ -147,7 +151,7 @@ public final class CardView: UIView, CardViewProtocol {
     ///   - title: Título do filme
     ///   - releaseDate: Data de lançamento do filme
     public func setupView(poster: UIImage?, title: String, releaseDate: String) {
-        setupImage(poster, imageView: posterImageView)
+        setupImage(poster)
         titleLabel.text = title
         releaseDateLabel.text = releaseDate
     }
@@ -155,8 +159,8 @@ public final class CardView: UIView, CardViewProtocol {
     /// Atualiza a imagem do poster
     ///
     /// - Parameter image: Nova imagem a ser exibida
-    public func update(image: UIImage) {
-        posterImageView.state = .success(image: image)
+    public func update(image: UIImage?) {
+        setupImage(image)
     }
 
     /// Exibe o estado de carregamento da imagem

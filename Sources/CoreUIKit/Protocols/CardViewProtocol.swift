@@ -30,7 +30,7 @@ public protocol CardViewProtocol: ComponentProtocol {
     
     /// Atualiza a imagem do poster
     /// - Parameter image: Nova imagem a ser exibida
-    func update(image: UIImage)
+    func update(image: UIImage?)
 
     /// Inicia o estado de carregamento para a imagem
     func startLoading()

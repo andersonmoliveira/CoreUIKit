@@ -107,15 +107,3 @@ public final class TagView: UIView, TagViewProtocol {
         titleLabel.text = title
     }
 }
-
-extension UIColor {
-    /// Retorna `true` se a cor for considerada escura
-    var isDarkColor: Bool {
-//        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
-//        self.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        var white: CGFloat = 0, alpha: CGFloat = 0
-        getWhite(&white, alpha: &alpha)
-        // Cálculo de luminância
-        return white < 0.5
-    }
-}
