@@ -28,17 +28,10 @@ import UIKit
 /// )
 /// cardView.update(image: newPosterImage)
 /// ```
+
 public final class CardView: UIView, CardViewProtocol {
     
     // MARK: - Subviews
-
-    private lazy var contentStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [posterImageView.asView(), infoStackView])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        return stackView
-    }()
 
     private lazy var posterImageView: StatefulImageViewProtocol = {
         let imageView = StatefulImageView()
@@ -120,16 +113,19 @@ public final class CardView: UIView, CardViewProtocol {
 
     /// Adiciona subviews e aplica constraints principais
     private func setupConstraints() {
-        addSubview(contentStackView)
+        addSubview(posterImageView.asView())
+        addSubview(infoStackView)
 
         NSLayoutConstraint.activate([
-            contentStackView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            contentStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            contentStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            contentStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            posterImageView.asView().topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            posterImageView.asView().leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            posterImageView.asView().trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
-            posterImageView.asView().heightAnchor.constraint(equalTo: posterImageView.asView().widthAnchor, multiplier: 1.5),
-            infoStackView.heightAnchor.constraint(greaterThanOrEqualToConstant: 48)
+            infoStackView.heightAnchor.constraint(equalToConstant: 50),
+            infoStackView.topAnchor.constraint(equalTo: posterImageView.asView().bottomAnchor, constant: 8),
+            infoStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            infoStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            infoStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
         ])
     }
 

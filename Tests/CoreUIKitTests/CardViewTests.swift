@@ -70,6 +70,7 @@ final class CardViewTests: XCTestCase {
 
         cardView.translatesAutoresizingMaskIntoConstraints = false
         cardView.asView().heightAnchor.constraint(equalToConstant: 300).isActive = true
+        cardView.asView().widthAnchor.constraint(equalToConstant: 216).isActive = true
 
         cardView.placeholderImage = UIImage(named: "default_movie_poster", in: Bundle.module, with: nil)
         cardView.setupView(poster: poster,
